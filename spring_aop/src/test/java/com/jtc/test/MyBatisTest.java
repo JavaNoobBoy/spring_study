@@ -8,7 +8,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class MyBatisTest {
 
-
     @Test
     public void testSpringIntegrateMybatis() {
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
