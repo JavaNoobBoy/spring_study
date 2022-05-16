@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -40,11 +41,12 @@ public class Advice {
 //    public void printOutputTime() {
 //        log.info("方法执行日期时间: {}", dateTimeFormatter.format(LocalDateTime.now()));
 //    }
-
-
     @Around("pt()")
     public Object printOutputTime2(ProceedingJoinPoint pjp) throws Throwable {
         log.info("方法执行日期时间: {}", dateTimeFormatter.format(LocalDateTime.now()));
+
+        LocalDate localDate = LocalDate.parse("2020-01-01", dateTimeFormatter);
+        System.out.println("localDate = " + localDate);
         Object proceed = pjp.proceed();
         log.info("获取到返回值之后继续执行(后续通知)...值:{}", proceed);
         return proceed;

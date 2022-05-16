@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
 
 @Configuration
 @ComponentScan("com.jtc")
@@ -15,6 +16,8 @@ public class SpringConfig {
 
     @Bean
     DateTimeFormatter dateTimeFormatter() {
-        return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return DateTimeFormatter
+                .ofPattern("yyyy-MM-dd")
+                .withResolverStyle(ResolverStyle.STRICT);
     }
 }

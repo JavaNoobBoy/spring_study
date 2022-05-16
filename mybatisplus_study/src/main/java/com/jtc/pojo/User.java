@@ -2,15 +2,28 @@ package com.jtc.pojo;
 
 public class User {
 
-    private Integer id;
+//    @TableId(type = IdType.INPUT)
+    private Long id;
+
     private String username;
+
     private String password;
 
-    public Integer getId() {
+    private Integer deleted;
+
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -5,6 +5,8 @@ spring:
       url: jdbc:mysql:///jdbc_practice?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: root
+  main:
+    banner-mode: OFF
 mybatis-plus:
   configuration:
     #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
@@ -14,3 +16,7 @@ mybatis-plus:
     db-config:
       # id生成规则:雪花算法自动生成
       id-type: ASSIGN_ID
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    banner: false
